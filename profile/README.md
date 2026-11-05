@@ -15,11 +15,22 @@ corridors live on testnet today: stellar ↔ cosmos hub, and stellar ↔ sepolia
 
 ## repositories
 
+**on-chain**
+
+- [ipsa-contracts](https://github.com/ipsadev/ipsa-contracts) - soroban contracts for ibc v2 on stellar: the router, the ics-20 and ics-27 apps, and the light clients stellar runs
 - [stellar-light-client](https://github.com/ipsadev/stellar-light-client) - the 08-wasm stellar light client for cosmwasm chains
 - [ibc-contracts](https://github.com/ipsadev/ibc-contracts) - ibc v2 solidity contracts with the stellar corridor, the sp1 programs and the proof api
+
+**verification**
+
 - [stellar-consensus-verifier](https://github.com/ipsadev/stellar-consensus-verifier) - scp verification in rust
 - [ipsa-scp-verifier](https://github.com/ipsadev/ipsa-scp-verifier) - verify one ledger's consensus, step by step, from the history archives
-- [ipsa-ibc-core](https://github.com/ipsadev/ipsa-ibc-core) - ibc commitment paths, the fixed-depth smt and its ics-23 proofs
+
+**building on ipsa**
+
+- [ipsa](https://github.com/ipsadev/ipsa) - the ipsa crate (commitment paths and proofs, the router's types, gmp and ics-20) and example apps
 - [ibc-relayer](https://github.com/ipsadev/ibc-relayer) - cosmos labs' ibc v2 relayer with stellar as a chain type, under their source-available evaluation licence
 
-the rest of the implementation is private while it is under active development, and will be open-sourced once it stabilises.
+[ipsa-ibc-core](https://github.com/ipsadev/ipsa-ibc-core) is archived; it lives on as the `core` module of the ipsa crate.
+
+the off-chain services, the cli and the apps are private while they are under active development, and will be open-sourced once they stabilise.
