@@ -1,14 +1,16 @@
 # ipsa
 
-ibc v2 for stellar. each chain verifies the other's consensus in on-chain code, with no bridge operator, custodian or attestation service in the trust path.
+light clients for ibc v2. ipsa brings chains whose consensus ibc can't verify yet into ibc v2, one consensus family at a time. each chain verifies the other's consensus in on-chain code, with no bridge operator, custodian or attestation service in the trust path. stellar is the first chain.
 
 - **website** - [ipsa.dev](https://ipsa.dev)
-- **app** - [app.ipsa.dev](https://app.ipsa.dev): docs, the scp verifier, the explorer and transfers
+- **app** - [app.ipsa.dev](https://app.ipsa.dev): docs, the architecture, the scp verifier, the explorer and transfers
+- **technical documentation** - [app.ipsa.dev/technical-documentation](https://app.ipsa.dev/technical-documentation) (pdf)
 
 ## how it works
 
-- **stellar side** - soroban contracts implement ibc v2, so stellar sends and receives packets as a first-class member of the protocol.
-- **counterparty side** - a stellar light client checks stellar's scp signatures against a trust root of validators. the cosmos hub runs it as an 08-wasm client, and ethereum checks it through sp1 zero-knowledge proofs.
+- **on the new chain** - ibc v2 runs natively as contracts, so the chain sends and receives packets as a first-class member of the protocol. on stellar these are soroban contracts.
+- **on its counterparties** - a light client of the new chain's consensus, built once per consensus family. cosmos chains run it as an 08-wasm client, and evm chains check it through sp1 zero-knowledge proofs. stellar's checks scp signatures against a trust root of validators.
+- **operations** - consensus evidence, proofs, relaying, client tooling and an explorer, built once and shared across chains.
 - **relayer** - carries the bytes and has no authority. if it lies, the proofs fail. if it stops, packets time out and funds return to the sender.
 
 corridors live on testnet today: stellar ↔ cosmos hub, and stellar ↔ sepolia.
@@ -17,7 +19,7 @@ corridors live on testnet today: stellar ↔ cosmos hub, and stellar ↔ sepolia
 
 **on-chain**
 
-- [ipsa-contracts](https://github.com/ipsadev/ipsa-contracts) - soroban contracts for ibc v2 on stellar: the router, the ics-20 and ics-27 apps, and the light clients stellar runs
+- [ipsa-contracts](https://github.com/ipsadev/ipsa-contracts) - soroban contracts for ibc v2 on stellar: the router, the ics-20 and ics-27 apps, the fast-fill contract, and the light clients stellar runs
 - [stellar-light-client](https://github.com/ipsadev/stellar-light-client) - the 08-wasm stellar light client for cosmwasm chains
 - [ibc-contracts](https://github.com/ipsadev/ibc-contracts) - ibc v2 solidity contracts with the stellar corridor, the sp1 programs and the proof api
 
