@@ -4,7 +4,7 @@ light clients for ibc v2. ipsa brings chains whose consensus ibc can't verify ye
 
 - **website** - [ipsa.dev](https://ipsa.dev)
 - **app** - [app.ipsa.dev](https://app.ipsa.dev): docs, the architecture, the scp verifier, the explorer and transfers
-- **technical documentation** - [app.ipsa.dev/technical-documentation](https://app.ipsa.dev/technical-documentation) (pdf)
+- **technical documentation** - [app.ipsa.dev/docs](https://app.ipsa.dev/docs)
 
 ## how it works
 
